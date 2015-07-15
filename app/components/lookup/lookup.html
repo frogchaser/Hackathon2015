@@ -64,20 +64,27 @@
 
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <div class="span12">
-     			<img src="http://frogchaser.github.io/Hackathon2015/assets/img/sdn.png" alt="image">
-     	 </div>
+          <img src="http://frogchaser.github.io/Hackathon2015/assets/img/sdn.png" alt="image">
+        </div>
 
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
-          <hr class="hr-large">
+        <hr class="hr-large">
 
 
-          <!-- begin content area -->
-          <div class="gray controlled-text-wrap">
-            <div class="wrap-this">
-              <a data-target="#modalFilter" data-toggle="modal" data-backdrop="true" role="button" class="btn-group">
-                <span class="btn btn-utility">Refine</span>
-                <span class="btn btn-utility"><i class="glyphicon glyphicon-search"></i></span>
+        <!-- begin content area -->
+        <div class="gray controlled-text-wrap">
+          <div class="wrap-this">
+            <a data-target="#modalFilter" data-toggle="modal" data-backdrop="true" role="button" class="btn-group">
+              <span class="btn btn-utility">Refine</span>
+              <span class="btn btn-utility"><i class="glyphicon glyphicon-search"></i></span>
+
+              <!-- Utilize BlackFlag API to allow for voice searching capabilities -->
+              <span class="btn btn-utility">Voice Search
+                <a ng-click="voiceSearch()">
+                </span>
+
+                
               </a>
               <div id="modalFilter" class="modal utility-bg fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
             </div>

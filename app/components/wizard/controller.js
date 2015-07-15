@@ -10,15 +10,7 @@
     $scope.courseSelected = {};
     $scope.maxCoursesShown = 3;
 
-    $scope.courseData = [
-      {'Name':'Programming 101', 'Description':'This is where you learn how to program like never before'},
-      {'Name': 'Clouding 101', 'Description': 'Fly to the sky so very hi'},
-      {'Name': 'Dancing 101', 'Description':  'Everybody dance now!'},
-      {'Name': 'Taylor Swift', 'Description':  'Bad Blood'},
-      {'Name': 'iPhone', 'Description':  'My world'},
-      {'Name': 'Peanut Butter', 'Description':  'Jelly Time'}
-    ];
-
+    $scope.courseData = courseData;
     $scope.coursesShown = $scope.courseData;
 
 
@@ -76,7 +68,7 @@
           courses.push( $scope.coursesShown[i]);
         }
       }
-      
+
       $scope.coursesShown = courses;
       if ($scope.coursesShown.length == 0) {
         $scope.goToCourses();
@@ -87,3 +79,28 @@
   }]);
 
 }(window.angular));
+
+var courseData =[
+  {
+    Name:'Big Data: The Information Transformation',
+    Description: 'This module explores Big Data and its implications. Some thought leaders believe that in the future Big Data will be as fundamental to business as land, labor and capital.'
+  },
+  {
+    Name:'Mobile First: Overview to IT',
+    Description: 'This video provides an introduction to Mobile First including what it means, why is it important and how it will be implemented in IT at AT&T. The video also introduces the technology plan and our move to HTML5, CSS3 and Responsive Web Design (RWD).'
+  },
+  {
+    Name: 'VMware Cloud Fundamentals',
+    Description: 'The VMware Cloud Fundamentals course will provide you with a fundamental understanding of VMware’s Cloud products, including the business challenges those products are intended to solve.'
+  },
+
+  {
+    Name: 'Big Data: As a Service',
+    Description: 'This course describes the Big Data Platform-as-a-Service.'
+  },
+
+  {
+    Name: 'Mobile Security for App Development',
+    Description: 'This course provides an introduction to security requirements for mobile applications.'
+  }
+];

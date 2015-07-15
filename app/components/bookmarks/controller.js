@@ -13,7 +13,7 @@ fastTrackApp.controller('bookmarksController', ['$scope', '$cookies', '$cookieSt
 
 var bookmarksList = [
 	{
-		name:'Big Data: The Information Transformation',
+		name:'Big Data: Information Transformation',
 		description: 'This module explores Big Data and its implications. Some thought leaders believe that in the future Big Data will be as fundamental to business as land, labor and capital.'
 	},
 	{
