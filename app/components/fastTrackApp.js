@@ -1,5 +1,5 @@
 //create the module and name it flexDeskApp
-var fastTrackApp = angular.module('fastTrackApp', ['ngRoute','ngCookies']);
+var fastTrackApp = angular.module('fastTrackApp', ['ngRoute','ngCookies', 'ui.bootstrap']);
 
 fastTrackApp.config(function($routeProvider) {
 		$routeProvider

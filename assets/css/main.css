@@ -20,6 +20,13 @@ a:hover {
   margin-bottom: 10px;
 }
 
+.course-info {
+  border-style: solid;
+  border-width: 1px;
+  width:90%;
+  float: : left;
+}
+
 /****************************
 HEADER BAR
 ****************************/

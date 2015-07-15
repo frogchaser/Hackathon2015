@@ -1,78 +1,68 @@
-(function (angular, $) {
+(function (angular) {
   'use strict';
 
   fastTrackApp.controller('wizardController',['$scope', '$cookies', '$cookieStore', '$window','$location', function($scope, $cookies, $cookieStore, $window, $location) {
     $scope.step = 'Welcome';
     $scope.roles = ['Business Analyst', 'Software Engineer', 'Sleeper', 'Couch Potato'];
     $scope.specializations = ['Big Data', 'Cloud', 'Mobile First'];
-    $scope.selected = {};
-    var role = '';
+    $scope.rolesSelected = {};
+    $scope.specsSelected = {};
+    $scope.courseSelected = {};
+
+    $scope.courseData = [
+      {'Name':'Programming 101', 'Description':'This is where you learn how to program like never before'},
+      {'Name': 'Clouding 101', 'Description': 'Fly to the sky so very hi'},
+      {'Name': 'Dancing 101', 'Description':  'Everybody dance now!'}
+    ];
+
 
     $scope.goToWelcome = function () {
       $scope.step = 'Welcome';
     }
 
-    $scope.goToSpecialization = function (selectedRole) {
+    $scope.goToSpecialization = function () {
       $scope.step = 'Specialization';
-      role = selectedRole;
     };
 
     $scope.goToRole = function () {
       $scope.step = 'Role';
     };
 
+    $scope.goToRefine = function () {
+      $scope.step = 'Refine';
+    };
+
+    $scope.goToRefine2 = function () {
+      $scope.step = 'Refine2';
+    };
+
     $scope.goToCourses = function(name, address) {
-      var selectedSpecializations = [];
-      angular.forEach($scope.selected, function (value, key) {
+      var selectedSpecializations = [],
+          selectedRoles = [];
+
+       angular.forEach($scope.rolesSelected, function (value, key) {
+        if (value) {
+          selectedRoles.push(key);
+        }
+      });
+
+      angular.forEach($scope.specsSelected, function (value, key) {
         if (value) {
           selectedSpecializations.push(key);
         }
       });
 
-      $cookieStore.put('selectedRole', role);
+      $cookieStore.put('selectedRoles', selectedRoles);
       $cookieStore.put('selectedSpecializations', selectedSpecializations);
       $location.url('courses');
     };
 
+    $scope.courseSelect = function (course) {
+      $scope.courseSelected[course] = true;
+      window.console.log('pressed');
+    };
+
+
   }]);
 
-
-  fastTrackApp.controller('ButtonsCtrl', function($scope, $q, $rootScope) {
-     $scope.singleModel = 1;
-     $scope.radioModel = '32GB';
-     $scope.gridModel = 'right';
-     $scope.toggleBtnModel = 'Yes';
-     $scope.checkModel = {
-        left: false,
-        middle: true,
-        right: false
-     };
-     $scope.checkModel1 = {
-        U450: false,
-        U300: false,
-        U200: false,
-        ufamily:false,
-        ubasic:false
-     };
-     $scope.collection = ["Item 1", "Item 2"];
-     $scope.selectedIndex = 0; // Whatever the default selected index is, use -1 for no selection
-     $scope.itemClicked = function($index) {
-        $scope.selectedIndex = $index;
-     };
-     $scope.buttonClicked = function() {
-        var deferred = $q.defer();
-        $scope.promise = deferred.promise;
-        setTimeout(function() {
-           deferred.resolve("PROMISE");
-           alert('PROMISE Set');
-        }, 2000);
-     };
-     $scope.buttonClicked1 = function() {
-        $rootScope.$broadcast("startSpinner");
-        setTimeout(function() {
-           $rootScope.$broadcast("stopSpinner");
-        }, 2000);
-     };
-  });
-
-}(window.angular, window.jQuery));
+}(window.angular));

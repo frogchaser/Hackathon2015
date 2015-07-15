@@ -1,42 +1,91 @@
-<div ng-controller="wizardController"  ng-switch="step">
+<div ng-controller="wizardController" ng-switch="step">
   <div class="list-head sandbox-code-heading content-pad">
     <div>
       <center>
         <h2 ng-if="step == 'Welcome'">Welcome to G2GFP!</h2>
         <h2 ng-if="step == 'Role'">Roles of Interest</h2>
         <h2 ng-if="step == 'Specialization'">Specializations of Interest</h2>
-    </center>
-  </div>
-
+        <h2 ng-if="step == 'Refine | Refine2'">Refine Recommendations</h2>
+      </center>
+    </div>
   </div>
 
   <div ng-switch-when="Welcome">
     <h4>
-    <center>
-    On the next few screens,<br> you will make selections<br> according to your learing interests.<br><br>
-    You can always change your preferences later.<br><br></center></h4>
-      <button type="button" class="btn btn-large btn-block" ng-click="goToRole()">Begin</button>
+      <center>On the next few screens,
+        <br>you will make selections
+        <br>according to your learing interests.
+        <br>
+        <br>You can always change your preferences later.
+        <br><br>
+      </center>
+    </h4>
+    <button type="button" class="btn btn-large btn-block" ng-click="goToRole()">Begin</button>
   </div>
 
   <!-- Step 1 for wizard -->
   <div ng-switch-when="Role">
-    <span ng-repeat="role in roles">
-      <button type="button" class="btn btn-alt" style="width:45%;" ng-if="$index%2==0" btn-checkbox> {{role}} </button>
-      <button type="button" class="btn btn-alt" style="width:45%;" ng-if="$index%1==0" btn-checkbox> {{role}} </button>
-    </span>
-    <br><br>
-    <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToWelcome()">Back</button>
-    <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToSpecialization()">Next</button>
+    <center>
+      <h4>Choose whichever you roles you would be interested in learning
+        <h4>
+          <ul>
+            <li ng-repeat="role in roles" style="display:inline;">
+              <button class="btn btn-primary li-space" style="width:45%;" ng-model="rolesSelected[role]" ng-if="$index%2==0" btn-checkbox>{{role}}</button>
+              <button class="btn btn-primary li-space" style="width:45%;" ng-model="rolesSelected[role]" ng-if="$index%2!=0" btn-checkbox>{{role}}</button>
+            </li>
+          </ul>
+          <br>
+          <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToWelcome()">Back</button>
+          <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToSpecialization()">Next</button>
+    </center>
   </div>
 
- <!-- Step 2 for wizard -->
+  <!-- Step 2 for wizard -->
   <div ng-switch-when="Specialization">
-      <ul>
-        <li ng-repeat="spec in specializations">
-          <input type="checkbox" ng-model="selected[spec]" class=".checkbox-primary"> {{spec}} </input>
-         </li>
+    <center>
+    <ul>
+      <li ng-repeat="spec in specializations">
+        <button class="btn btn-primary li-space" style="width:45%;" ng-model="specsSelected[spec]" btn-checkbox>{{spec}}</input>
+      </li>
     </ul>
     <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToRole()">Back</button>
-    <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToCourses()">Continue</button>
+    <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToRefine()">Continue</button>
+    </center>
   </div>
+
+<!--Step 3 for wizard -->
+  <div ng-switch-when="Refine">
+    <center>
+      <h4>
+        Indicate whatever you are interested or not intereseted in the given areas.<br><br>
+        This will help refine what courses are recommended to you in the future.
+    </h4>
+    <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToSpecialization()">Back</button>
+    <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToRefine2()">Continue</button>
+    </center>
+  </div>
+
+  <!--step 4 for wizard -->
+  <div ng-switch-when="Refine2">
+    <center>
+    <ul>
+      <li ng-repeat="course in courseData" class="course-info">
+        Course: {{course.Name}} <br>
+        Description: {{course.Description}}<br>
+        <div ng-if="courseSelected[course.Name]!=true">
+        <button type="button" class="btn btn-default btn-xs" style="width:20%;" ng-click="courseSelect(course.Name)">No</button>
+        <button type="button" class="btn btn-default btn-xs" style="width:20%;" ng-click="courseSelect(course.Name)">Yes</button>
+      </div>
+      <div ng-if="courseSelected[course.Name]==true">
+        <i>Selected</i>
+    </div>
+      </li>
+    </ul></center>
+    <center>
+      <button type="button" class="btn btn-large li-space" style="width:30%;" ng-click="goToSpecialization()">Back</button>
+      <button type="button" class="btn btn-link">Skip</button>
+      <button type="button" class="btn btn-large li-space" style="width:30%;" ng-click="goToCourses()">Continue</button>
+    </center>
+  </div>
+
 </div>
