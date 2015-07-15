@@ -1,0 +1,14 @@
+<div class="list-head sandbox-code-heading content-pad">
+	<div class="head"><h2>Completed Classes</h2></div>
+</div>
+<hr class="hr-small">
+
+<ul class="list">
+	<li ng-repeat="complete in completed">
+		<a ng-click="goFloor(complete.name, complete.description)">
+			<div>
+			<span class="bookmarks-name">{{ complete.name }}</span>
+			<span class="bookmarks-description">{{ complete.description }}</span>
+		</div>
+	</li>
+</ul>

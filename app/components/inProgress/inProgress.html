@@ -1,0 +1,14 @@
+<div class="list-head sandbox-code-heading content-pad">
+	<div class="head"><h2>Classes in Progress</h2></div>
+</div>
+<hr class="hr-small">
+
+<ul class="list">
+	<li ng-repeat="progress in inProgress">
+		<a ng-click="goFloor(complete.name, complete.description)">
+			<div>
+			<span class="bookmarks-name">{{ progress.name }}</span>
+			<span class="bookmarks-description">{{ progress.description }}</span>
+		</div>
+	</li>
+</ul>

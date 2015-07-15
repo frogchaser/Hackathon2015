@@ -9,11 +9,3 @@ fastTrackApp.controller('detailsController', ['$scope', '$cookies', '$cookieStor
 		$location.url('details');
 	};
 }]);
-
-
-var bookmarksList = [
-	{
-		name:'details',
-		description: 'This module explores Big Data and its implications. Some thought leaders believe that in the future Big Data will be as fundamental to business as land, labor and capital.'
-	},
-];

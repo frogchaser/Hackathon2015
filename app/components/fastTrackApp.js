@@ -27,6 +27,10 @@ fastTrackApp.config(function($routeProvider) {
 				controller  : 'detailsController'
 			})
 
+			.when('/lookup', {
+				templateUrl : 'app/components/lookup/lookup.html',
+				controller  : 'lookupController'
+			})
 			// route for the floor page
 			.when('/floor', {
 				templateUrl : 'app/components/floor/floor.html',
@@ -51,8 +55,14 @@ fastTrackApp.config(function($routeProvider) {
 			})
 
 			// route for the layout page
-			.when('/courses', {
-				templateUrl : 'app/components/courses/courses.html',
-				controller  : 'coursesController'
+			.when('/completed', {
+				templateUrl : 'app/components/completed/completed.html',
+				controller  : 'completedController'
+			})
+
+			// route for the layout page
+			.when('/inProgress', {
+				templateUrl : 'app/components/inProgress/inProgress.html',
+				controller  : 'inProgressController'
 			});
 	});

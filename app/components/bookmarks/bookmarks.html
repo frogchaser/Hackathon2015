@@ -4,12 +4,20 @@
 <hr class="hr-small">
 
 <ul class="list">
-	<li ng-repeat="bookmark in bookmarks | orderBy:'name'">
-		<a ng-click="goFloor(bookmark.name, bookmark.description)">
-			<div>
-			<span class="bookmarks-name">{{ bookmark.name }}</span>
-			<span class="bookmarks-description">{{ bookmark.description }}</span>
-		</div>
-<button type="button" class="btn btn-xs btn-danger">Remove</button>		</a>
-	</li>
-</ul>
+	<li ng-repeat="bookmark in bookmarks | orderBy:'name'" >
+		<div>
+			<a ng-click="goFloor(bookmark.name, bookmark.description)">
+				<header>
+					<aside style="float:left">
+						<span class="bookmarks-name">{{ bookmark.name }}</span>
+					</aside>
+					<aside style="float:right">
+						<button type="button" class="btn btn-xs btn-danger" style="height:50%">Remove</button>		</a>
+					</aside>
+				</header>
+				<section style="padding: 30px 0px 0px 0px">
+					<span class="bookmarks-description">{{ bookmark.description }}</span>
+				</section>
+			</div>
+		</li>
+	</ul>
