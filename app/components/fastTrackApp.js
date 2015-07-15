@@ -18,6 +18,12 @@ fastTrackApp.config(function($routeProvider) {
 				controller  : 'bookmarksController'
 			})
 
+			// route for the home page
+			.when('/help', {
+				templateUrl : 'app/components/help/help.html',
+				controller  : 'helpController'
+			})
+
 			.when('/details', {
 				templateUrl : 'app/components/details/details.html',
 				controller  : 'detailsController'
@@ -29,7 +35,7 @@ fastTrackApp.config(function($routeProvider) {
 				templateUrl : 'app/components/lookup/lookup.html',
 				controller  : 'lookupController'
 			})
-		
+
 
 
 			// route for the layout page
