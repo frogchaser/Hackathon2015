@@ -4,11 +4,7 @@ var fastTrackApp = angular.module('fastTrackApp', ['ngRoute','ngCookies', 'ui.bo
 fastTrackApp.config(function($routeProvider) {
 		$routeProvider
 
-			// route for the building page
-			.when('/building', {
-				templateUrl : 'app/components/building/building.html',
-				controller  : 'buildingController'
-			})
+
 			// route for the home page
 			.when('/', {
 				templateUrl : 'app/components/home/home.html',
@@ -27,27 +23,14 @@ fastTrackApp.config(function($routeProvider) {
 				controller  : 'detailsController'
 			})
 
-			// route for the floor page
-			.when('/floor', {
-				templateUrl : 'app/components/floor/floor.html',
-				controller  : 'floorController'
-			})
+
 
 			.when('/lookup', {
 				templateUrl : 'app/components/lookup/lookup.html',
 				controller  : 'lookupController'
 			})
+		
 
-			// route for the section page
-			.when('/section', {
-				templateUrl : 'app/components/section/section.html',
-				controller  : 'sectionController'
-			})
-			// route for the layout page
-			.when('/layout', {
-				templateUrl : 'app/components/layout/layout.html',
-				controller  : 'layoutController'
-			})
 
 			// route for the layout page
 			.when('/wizard', {
