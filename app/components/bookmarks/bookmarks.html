@@ -1,0 +1,15 @@
+<div class="list-head sandbox-code-heading content-pad">
+	<div class="head"><h2>Bookmarked Classes</h2></div>
+</div>
+<hr class="hr-small">
+
+<ul class="list">
+	<li ng-repeat="bookmark in bookmarks | orderBy:'name'">
+		<a ng-click="goFloor(bookmark.name, bookmark.description)">
+			<div>
+			<span class="bookmarks-name">{{ bookmark.name }}</span>
+			<span class="bookmarks-description">{{ bookmark.description }}</span>
+		</div>
+<button type="button" class="btn btn-xs btn-danger">Remove</button>		</a>
+	</li>
+</ul>

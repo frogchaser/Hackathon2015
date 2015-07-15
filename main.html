@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="fastTrackApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Flex Desk</title>
+
+  <!-- CSS -->
+  <link href="assets/css/pushy.css" rel="stylesheet">
+  <link href="http://www.att.com/styles/att/assets3.2.0/css/sandbox-styles.min.css" rel="stylesheet">
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- JS -->
+  <script src="assets/js/angular.js"></script>
+  <script src="assets/js/angular-route.js"></script>
+  <script src="assets/js/angular-cookies.js"></script>
+</head>
+<body ng-controller="homeController">
+
+  <nav id="sidebar" class="pushy pushy-left">
+    <div id="side-head">
+      <a href="index.html" id="side-globe"><div class="cssIcon-globe">at&amp;t home</div></a>
+      <span id="side-attuid">ATTUID</span>
+    </div>
+    <ul>
+      <li><a href="index.html">Logout</a></li>
+      <li><a href="#/">Home</a></li>
+	<li></li>
+
+
+      <li><a href="#/bookmarks">Bookmarks</a></li>
+      <li><a href="#">Course Lookup</a></li>
+      <li><a href="#">Recommendations</a></li>
+	  <li><a href="#">Completed Courses</a></li>
+	  <li><a href="#">In Progress</a></li>
+	<li></li>
+
+
+	  <li><a href="#/wizard">Wizard</a></li>
+	  <li><a href="#">Preferences</a></li>
+	  <li><a href="#">Help</a></li>
+    </ul>
+  </nav>
+
+  <div class="site-overlay"></div>
+
+  <div id="container">
+
+    <header class="navbar globalNav">
+      <div class="row">
+        <div class="col-xs-2">
+          <span class="menu-btn glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+        </div>
+        <div class="col-xs-10 text-right">
+          <form id="search-form">
+            <div class="input-group">
+              <input type="search" class="form-control" id="search" placeholder="Search">
+              <span id="search-icon" class="glyphicon glyphicon-search"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </header>
+
+
+    <div ng-view></div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="assets/js/pushy.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="app/components/fastTrackApp.js"></script>
+  <script src="app/components/building/controller.js"></script>
+  <script src="app/components/floor/controller.js"></script>
+  <script src="app/components/section/controller.js"></script>
+  <script src="app/components/layout/controller.js"></script>
+  <script src="app/components/wizard/controller.js"></script>
+  <script src="app/components/courses/controller.js"></script>
+  <script src="app/components/home/controller.js"></script>
+  <script src="app/components/bookmarks/controller.js"></script>
+
+
+  <footer>
+     <div id="footerNav">
+        <div class="ui-block-a row-fluid">
+           <a href="//www.att.net">ATT.NET</a>
+        </div>
+        <div class="ui-block-b row-fluid">
+           <a href="//www.att.com/gen/general?pid=11627">BUSINESS</a>
+        </div>
+        <div class="ui-block-c row-fluid">
+           <a href="//about.att.com/category/all_news.html">ABOUT AT&amp;T</a>
+        </div>
+     </div>
+     <div id="footerBtm">
+        <ul>
+           <li><a href="//www.att.com/">FULL SITE</a></li>
+           <li><a href="//www.att.com/gen-mobile/privacy-policy?pid=2506">PRIVACY</a></li>
+           <li><a href="//www.att.com/gen-mobile/general?pid=11561">TERMS OF USE</a></li>
+        </ul>
+        <ul>
+           <li><a href="//www.att.com/econtactus/">CONTACT US</a></li>
+           <li><a href="//m.att.com/shopmobile/wireless/legal.html">LEGAL</a></li>
+        </ul>
+        <p><a href="//www.att.com/gen-mobile/privacy-policy?pid=2587">&copy; <span class="copyright">2014</span> AT&amp;T Intellectual Property.</a> All rights reserved. AT&T and Globe logo are registered trademarks of AT&T Intellectual Property.</p>
+     </div>
+  </footer>
+</body>
+
+</html>

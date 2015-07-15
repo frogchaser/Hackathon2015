@@ -1,0 +1,42 @@
+<div ng-controller="wizardController"  ng-switch="step">
+  <div class="list-head sandbox-code-heading content-pad">
+    <div>
+      <center>
+        <h2 ng-if="step == 'Welcome'">Welcome to G2GFP!</h2>
+        <h2 ng-if="step == 'Role'">Roles of Interest</h2>
+        <h2 ng-if="step == 'Specialization'">Specializations of Interest</h2>
+    </center>
+  </div>
+
+  </div>
+
+  <div ng-switch-when="Welcome">
+    <h4>
+    <center>
+    On the next few screens,<br> you will make selections<br> according to your learing interests.<br><br>
+    You can always change your preferences later.<br><br></center></h4>
+      <button type="button" class="btn btn-large btn-block" ng-click="goToRole()">Begin</button>
+  </div>
+
+  <!-- Step 1 for wizard -->
+  <div ng-switch-when="Role">
+    <span ng-repeat="role in roles">
+      <button type="button" class="btn btn-alt" style="width:45%;" ng-if="$index%2==0" btn-checkbox> {{role}} </button>
+      <button type="button" class="btn btn-alt" style="width:45%;" ng-if="$index%1==0" btn-checkbox> {{role}} </button>
+    </span>
+    <br><br>
+    <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToWelcome()">Back</button>
+    <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToSpecialization()">Next</button>
+  </div>
+
+ <!-- Step 2 for wizard -->
+  <div ng-switch-when="Specialization">
+      <ul>
+        <li ng-repeat="spec in specializations">
+          <input type="checkbox" ng-model="selected[spec]" class=".checkbox-primary"> {{spec}} </input>
+         </li>
+    </ul>
+    <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToRole()">Back</button>
+    <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToCourses()">Continue</button>
+  </div>
+</div>
