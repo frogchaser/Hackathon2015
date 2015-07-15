@@ -5,7 +5,7 @@
         <h2 ng-if="step == 'Welcome'">Welcome to G2GFP!</h2>
         <h2 ng-if="step == 'Role'">Roles of Interest</h2>
         <h2 ng-if="step == 'Specialization'">Specializations of Interest</h2>
-        <h2 ng-if="step == 'Refine | Refine2'">Refine Recommendations</h2>
+        <h2 ng-if="step == 'Refine' || step == 'Refine2'">Refine Recommendations</h2>
       </center>
     </div>
   </div>
@@ -35,8 +35,8 @@
             </li>
           </ul>
           <br>
-          <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToWelcome()">Back</button>
-          <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToSpecialization()">Next</button>
+          <button type="button" class="btn btn-large progress-btn" ng-click="goToWelcome()">Back</button>
+          <button type="button" class="btn btn-large progress-btn" ng-click="goToSpecialization()">Next</button>
     </center>
   </div>
 
@@ -48,8 +48,8 @@
         <button class="btn btn-primary li-space" style="width:45%;" ng-model="specsSelected[spec]" btn-checkbox>{{spec}}</input>
       </li>
     </ul>
-    <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToRole()">Back</button>
-    <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToRefine()">Continue</button>
+    <button type="button" class="btn btn-large progress-btn" ng-click="goToRole()">Back</button>
+    <button type="button" class="btn btn-large progress-btn" ng-click="goToRefine()">Continue</button>
     </center>
   </div>
 
@@ -60,8 +60,8 @@
         Indicate whatever you are interested or not intereseted in the given areas.<br><br>
         This will help refine what courses are recommended to you in the future.
     </h4>
-    <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToSpecialization()">Back</button>
-    <button type="button" class="btn btn-large" style="width:45%;" ng-click="goToRefine2()">Continue</button>
+    <button type="button" class="btn btn-large progress-btn" ng-click="goToSpecialization()">Back</button>
+    <button type="button" class="btn btn-large progress-btn" ng-click="goToRefine2()">Continue</button>
     </center>
   </div>
 
@@ -70,21 +70,24 @@
     <center>
     <ul>
       <li ng-repeat="course in courseData" class="course-info">
-        Course: {{course.Name}} <br>
-        Description: {{course.Description}}<br>
-        <div ng-if="courseSelected[course.Name]!=true">
-        <button type="button" class="btn btn-default btn-xs" style="width:20%;" ng-click="courseSelect(course.Name)">No</button>
-        <button type="button" class="btn btn-default btn-xs" style="width:20%;" ng-click="courseSelect(course.Name)">Yes</button>
+        <div class="course-text">
+        Course Title: {{course.Name}} <br>
+        Synopsis: {{course.Description}}<br>
       </div>
-      <div ng-if="courseSelected[course.Name]==true">
-        <i>Selected</i>
+        <div ng-if="courseSelected[course.Name]==null">
+        <button type="button" class="btn btn-default btn-xs" style="width:40%;" ng-click="courseSelect(course.Name, false)">Not Interested</button>
+        <button type="button" class="btn btn-default btn-xs" style="width:40%;" ng-click="courseSelect(course.Name, true)">Interested</button>
+      </div>
+      <div ng-if="courseSelected[course.Name]!=null">
+        <img src="assets/img/backarrow.png" height="21" width="21" ng-click="courseSelect(course.Name, null)">
+        <div ng-if="courseSelected[course.Name] == true"  class="course-option-btn"><i>Added to bookmarks</i></div>
+        <div ng-if="courseSelected[course.Name] == false" class="course-option-btn"><i>Not Interested</i></div>
     </div>
       </li>
-    </ul></center>
-    <center>
+    </ul>
       <button type="button" class="btn btn-large li-space" style="width:30%;" ng-click="goToSpecialization()">Back</button>
       <button type="button" class="btn btn-link">Skip</button>
-      <button type="button" class="btn btn-large li-space" style="width:30%;" ng-click="goToCourses()">Continue</button>
+      <button type="button" class="btn btn-large li-space" style="width:30%;" ng-click="goToCourses()">Finish</button>
     </center>
   </div>
 

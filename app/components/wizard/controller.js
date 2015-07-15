@@ -2,7 +2,7 @@
   'use strict';
 
   fastTrackApp.controller('wizardController',['$scope', '$cookies', '$cookieStore', '$window','$location', function($scope, $cookies, $cookieStore, $window, $location) {
-    $scope.step = 'Welcome';
+    $scope.step = 'Refine2';
     $scope.roles = ['Business Analyst', 'Software Engineer', 'Sleeper', 'Couch Potato'];
     $scope.specializations = ['Big Data', 'Cloud', 'Mobile First'];
     $scope.rolesSelected = {};
@@ -57,9 +57,8 @@
       $location.url('courses');
     };
 
-    $scope.courseSelect = function (course) {
-      $scope.courseSelected[course] = true;
-      window.console.log('pressed');
+    $scope.courseSelect = function (course, selected) {
+      $scope.courseSelected[course] = selected;
     };
 
 
